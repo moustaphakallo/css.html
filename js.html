@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+ body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; background:#f7fafc;}
+    .countdown { background:white; padding:18px 24px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.08); text-align:center; }
+    .time { font-size:1.8rem; font-weight:700; letter-spacing:0.03em; }
+    .label { font-size:.85rem; color:#6b7280; margin-top:6px; }
+    .parts { display:flex; gap:12px; justify-content:center; margin-top:8px; }
+    .part { min-width:64px; background:#f1f5f9; padding:10px 12px; border-radius:8px; }
+    .part .value { font-size:1.4rem; font-weight:700; display:block; }
+    .part .text { font-size:.75rem; color:#475569; }
+  </style>
+</head>
+<body>
+
+  <div class="countdown" aria-live="polite">
+    <div class="time" id="countdown-main">Offre Black Friday</div>
+    <div class="parts" id="countdown-parts">
+      <div class="part"><span class="value" id="days">00</span><span class="text">Jours</span></div>
+      <div class="part"><span class="value" id="hours">00</span><span class="text">Heures</span></div>
+      <div class="part"><span class="value" id="minutes">00</span><span class="text">Minutes</span></div>
+      <div class="part"><span class="value" id="seconds">00</span><span class="text">Secondes</span></div>
+    </div>
+    <div class="label" id="countdown-label">Temps restant</div>
+  </div>
+
+  <script>
+    // ---- CONFIG ----
+    // Met ici la date/heure cible. Exemple: 2025-11-30T23:59:59 (ISO 8601).
+    // Si tu veux l'heure locale, n'ajoute pas "Z". Ex: '2025-11-30T23:59:59'
+    const targetISO = '2025-11-30T23:59:59'; // <-- modifie cette ligne
+    const targetDate = new Date(targetISO);
+
+    // ---- UTILS ----
+    function pad(n){ return String(n).padStart(2,'0'); }
+
+    // ---- RENDER ----
+    const elDays = document.getElementById('days');
+    const elHours = document.getElementById('hours');
+    const elMinutes = document.getElementById('minutes');
+    const elSeconds = document.getElementById('seconds');
+    const elMain = document.getElementById('countdown-main');
+    const elLabel = document.getElementById('countdown-label');
+
+    function updateCountdown(){
+      const now = new Date();
+      let diff = Math.max(0, targetDate - now); // ms
+
+      if(diff === 0){
+        // arrivé
+        clearInterval(timer);
+        elMain.textContent = 'Offre terminée';
+        elLabel.textContent = 'Merci — offre expirée';
+        elDays.textContent = elHours.textContent = elMinutes.textContent = elSeconds.textContent = '00';
+        return;
+      }
+
+      const secTotal = Math.floor(diff / 1000);
+      const days = Math.floor(secTotal / 86400);
+      const hours = Math.floor((secTotal % 86400) / 3600);
+      const minutes = Math.floor((secTotal % 3600) / 60);
+      const seconds = secTotal % 60;
+
+      elDays.textContent = pad(days);
+      elHours.textContent = pad(hours);
+      elMinutes.textContent = pad(minutes);
+      elSeconds.textContent = pad(seconds);
+    }
+
+    // commence immédiatement puis chaque seconde
+    updateCountdown();
+    const timer = setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connexion W3Schools</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+      }
+      .container {
+        max-width: 400px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #4caf50;
+        margin-bottom: 20px;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 15px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      .signin-btn {
+        width: 100%;
+        padding: 10px;
+        background: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .message {
+        text-align: center;
+        margin-top: 10px;
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+     <nav>
+          <a href="index.html">index</a>
+          <a href="devoir.html">devoir</a>
+          <a href="introduction.html">introduction</a>
+          <a href="js extantions.js">js extantions</a>
+          <a href="javasecrite.html">"javasecrite</a>
+          <a href="javascript.js"></a>
+          <a href="js.html">js</a>
+          <a href="css.html">css</a>
+          
+        </nav>
+    <div class="container">
+      <h1>Kallo💚</h1>
+      <input type="email" id="email" placeholder="Email" />
+      <input type="password" id="password" placeholder="Mot de passe" />
+      <button class="signin-btn" onclick="login()">Se connecter</button>
+      <div class="message" id="message"></div>
+    </div>
+
+    <script>
+      function login() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const message = document.getElementById("message");
+
+        if (email === "" || password === "") {
+          message.style.color = "red";
+          message.textContent = "donner les docier complais!";
+        } else {
+          // Ici tu peux mettre une vraie vérification avec un serveur
+          message.style.color = "green";
+          message.textContent = "Connexion réussie ! Bienvenue " + email;
+        }
+      }
+    </script>
+  </body>
+</html>
