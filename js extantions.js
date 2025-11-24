@@ -18,3 +18,4 @@ let y = 10;
 y = 15; // OK
 // let y = 20; // Erreur
 const PI = 3.14;
+

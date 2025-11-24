@@ -9,7 +9,7 @@
     <p id="nom"></p>
     <script src="javascript.js"></script>
     <!DOCTYPE html>
-    <html lang="fr">
+    <h  tml lang="fr">
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,95 +18,125 @@
         <style>
           body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            background: #f6f6f6;
+            background-color: #f5f5f5;
+            padding: 20px;
           }
           h1,
           h2 {
-            color: #2c3e50;
+            color: #333;
           }
-          .question {
-            background: #ffffff;
-            padding: 18px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            border-left: 5px solid #3498db;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-          }
-          code {
-            background: #f1f1f1;
-            padding: 5px;
+          pre {
+            background-color: #eee;
+            padding: 10px;
             border-radius: 5px;
-            display: block;
-            margin-top: 10px;
+            overflow-x: auto;
+          }
+          .contener{
+
           }
         </style>
       </head>
       <body>
+        <div class="contener " style="background-image: url(emple1.jpg);">
+
+       
         <nav>
-          <a href="index.html">index</a>
+            <a href="index.html">index</a>
           <a href="devoir.html">devoir</a>
           <a href="introduction.html">introduction</a>
           <a href="js extantions.js">js extantions</a>
           <a href="javasecrite.html">"javasecrite</a>
-          <a href="javascript.js"></a>
-          <a href="js.html">js</a>
+          <a href="javascript.js">javascript</a>
           <a href="css.html">css</a>
-          
         </nav>
-        <h1>Exercice : Introduction à JavaScript</h1>
+        <h1>Introduction à JavaScript</h1>
 
-        <!-- Question 1 -->
-        <div class="question">
-          <h2>1️⃣ Histoire de JavaScript</h2>
-          <p><strong>Dans votre réponse, assurez-vous de préciser :</strong></p>
-          <ul>
-            <li>L’année et le contexte de la création de JavaScript</li>
-            <li>Le nom du créateur</li>
-            <li>L’évolution du langage (AJAX, Node.js, etc.)</li>
-            <li>L’importance de ES6 (2015) et ce qu’il a apporté</li>
-            <li>Pourquoi JavaScript est devenu un langage incontournable</li>
-          </ul>
-        </div>
+        <h2>1️⃣ Histoire de JavaScript</h2>
+        <p>
+          JavaScript a été créé en <strong>1995</strong> par
+          <strong>Brendan Eich</strong> chez Netscape pour rendre les pages web
+          interactives. <br />
+          Il a évolué avec <strong>AJAX</strong> (2005) pour le chargement
+          dynamique, <strong>Node.js</strong> (2009) pour le côté serveur et des
+          frameworks modernes comme React ou Vue.js. <br />
+          L’arrivée de <strong>ES6 (2015)</strong> a apporté
+          <em>let, const, classes, modules, fonctions fléchées</em>, rendant le
+          code plus clair et moderne. <br />
+          Aujourd’hui, JavaScript est incontournable pour le développement web
+          front-end et back-end.
+        </p>
 
-        <!-- Question 2 -->
-        <div class="question">
-          <h2>2️⃣ Les types de données en JavaScript</h2>
-          <p>Expliquez les types suivants, avec définition + exemple :</p>
-          <ul>
-            <li>String</li>
-            <li>Number</li>
-            <li>Boolean</li>
-            <li>Undefined</li>
-            <li>Null</li>
-            <li>Symbol</li>
-            <li>BigInt</li>
-            <li>Object</li>
-            <li>Array</li>
-            <li>Function</li>
-          </ul>
-        </div>
+        <h2>2️⃣ Types de données</h2>
+        <pre id="types"></pre>
 
-        <!-- Question 3 -->
-        <div class="question">
-          <h2>3️⃣ Différences entre var, let et const</h2>
-          <p>Dans votre explication, mentionnez :</p>
-          <ul>
-            <li>Si la variable peut être modifiée</li>
-            <li>Si elle peut être redéclarée</li>
-            <li>Le type de portée (scope)</li>
-            <li>Laquelle est recommandée aujourd’hui et pourquoi</li>
-          </ul>
+        <h2>3️⃣ var, let et const</h2>
+        <pre id="variables"></pre>
 
-          <p><strong>Exemples :</strong></p>
+        <script class="console background-color black">
+          // -------------------------
+          // Types de données
+          // -------------------------
+          let nom = "Moustapha"; // String
+          let age = 25; // Number
+          let isAdmin = false; // Boolean
+          let x; // Undefined
+          let data = null; // Null
+          let id = Symbol("userID"); // Symbol
+          let grand = 123456789012345678901234567890n; // BigInt
+          let personne = { nom: "Kallo", age: 25 }; // Object
+          let fruits = ["mangue", "banane", "orange"]; // Array
+          function saluer() {
+            // Function
+            return "Bonjour !";
+          }
 
-          <code>
-            // Exemple var var a = 10; a = 20; // Exemple let let b = 10; b =
-            20; // Exemple const const c = 10; // c = 20; // erreur
-          </code>
-        </div>
-      </body>
-    </html>
+          document.getElementById("types").textContent = `String: ${nom}
+            Number: ${age}
+            Boolean: ${isAdmin}
+            Undefined: ${x}
+           Null: ${data}
+           Symbol: ${id.toString()}
+            BigInt: ${grand}
+            Object: ${JSON.stringify(personne)}
+            Array: ${fruits.join(", ")}
+            Function: ${saluer()}`;
+
+          // -------------------------
+          // var, let et const
+          // -------------------------
+          var a = 5;
+          a = 10;
+          var a = 20; // redéclaration possible
+
+          let b = 5;
+          b = 10;
+          // let b = 15; // provoque une erreur si décommenté
+
+          const c = 5;
+          // c = 10; // provoque une erreur si décommenté
+
+          document.getElementById(
+            "variables"
+          ).textContent = `var a = 5; a = 10; var a = 20; => a = ${a}
+          let b = 5; b = 10; => b = ${b}
+          const c = 5; => c = ${c} (non modifiable)`;
+
+          // Affichage dans la console pour vérifier
+          console.log("Types de données :", {
+            nom,
+            age,
+            isAdmin,
+            x,
+            data,
+            id,
+            grand,
+            personne,
+            fruits,
+            saluer,
+          });
+          console.log("Variables :", { a, b, c });
+        </script>
+      
+    
   </body>
 </html>
