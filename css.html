@@ -27,89 +27,86 @@
       .card {
         border-radius: 12px;
       }
-        .debitis a {
-       
+      .debitis a {
         align-items: center;
         justify-content: space-around;
         color: white;
         text-decoration: none;
-          background-color: black;
+        background-color: black;
       }
     </style>
   </head>
-      <nav class="debitis">
-          <a href="index.html">index</a>
-          <a href="devoir.html">devoir</a>
-          <a href="introduction.html">introduction</a>
-         
-          <a href="javasecrite.html">"javasecrite</a>
-         
-          <a href="css.html">css</a>
-          <a href="js.html">js</a>
-        </nav>
+  <nav class="debitis">
+    <a href="index.html">index</a>
+    <a href="devoir.html">devoir</a>
+    <a href="introduction.html">introduction</a>
+
+    <a href="javasecrite.html">"javasecrite</a>
+
+    <a href="css.html">css</a>
+    <a href="js.html">js</a>
+  </nav>
   <body>
     <div class="title-banner">
-      Différences et similitudes entre <span style="color: #ff4bff">let</span>,
-      <span style="color: #00ff99">var</span>, et
+      Differences and similarities between
+      <span style="color: #ff4bff">let</span>,
+      <span style="color: #00ff99">var</span>, and
       <span style="color: #ffd000">const</span>
     </div>
 
     <div class="container my-5">
       <div class="card p-4 shadow-lg">
-        <!-- Similitudes -->
+        <!-- Similarities -->
         <h3 class="text-primary mb-3">
-          <i class="bi bi-diamond"></i> Similitudes
+          <i class="bi bi-diamond"></i> Similarities
         </h3>
 
         <ul>
           <li>
-            <strong>Déclaration de variables :</strong> Les trois (
-            <code>let</code>, <code>var</code>, <code>const</code> ) déclarent
-            des variables.
+            <strong>Variable declaration:</strong> All three (<code>let</code>,
+            <code>var</code>, <code>const</code>) declare variables.
           </li>
           <li>
-            <strong>Stockage de tout type de données :</strong> Ils stockent
-            chaînes, nombres, objets, tableaux, etc.
+            <strong>Store any data type:</strong> They can store strings,
+            numbers, objects, arrays, etc.
           </li>
         </ul>
 
         <hr />
 
-        <!-- Différences -->
+        <!-- Differences -->
         <h3 class="text-danger mb-3">
-          <i class="bi bi-diamond-half"></i> Différences
+          <i class="bi bi-diamond-half"></i> Differences
         </h3>
 
-        <h5 class="text-danger">let :</h5>
+        <h5 class="text-danger">let:</h5>
         <ul>
-          <li>
-            Portée de bloc (accessibles uniquement dans <code>{ ... }</code>).
-          </li>
-          <li>Ne peut pas être redéclaré dans une même portée.</li>
-          <li>Peut recevoir une nouvelle valeur.</li>
+          <li>Block scope (accessible only inside <code>{ ... }</code>).</li>
+          <li>Cannot be redeclared in the same scope.</li>
+          <li>Can be reassigned with a new value.</li>
         </ul>
 
-        <h5 class="text-warning mt-3">var :</h5>
+        <h5 class="text-warning mt-3">var:</h5>
         <ul>
-          <li>Possède une portée fonctionnelle.</li>
-          <li>Peut être redéclaré et réaffecté.</li>
-          <li>Est hoisté mais **non initialisé**.</li>
+          <li>Has function scope.</li>
+          <li>Can be redeclared and reassigned.</li>
+          <li>Is hoisted but <strong>not initialized</strong>.</li>
         </ul>
 
-        <h5 class="text-success mt-3">const :</h5>
+        <h5 class="text-success mt-3">const:</h5>
         <ul>
-          <li>Portée de bloc (comme <code>let</code>).</li>
-          <li>Ne peut pas changer de valeur ni être redéclaré.</li>
-          <li>Doit être initialisé lors de sa déclaration.</li>
+          <li>Block scope (like <code>let</code>).</li>
+          <li>Cannot change value and cannot be redeclared.</li>
+          <li>Must be initialized at the moment of declaration.</li>
         </ul>
 
         <p class="text-center mt-4">
-          Comprendre ces différences est crucial pour écrire du code JavaScript
-          efficace !
+          Understanding these differences is crucial for writing efficient
+          JavaScript code!
         </p>
       </div>
     </div>
-
+    
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
