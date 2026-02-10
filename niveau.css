@@ -1,0 +1,64 @@
+import React from "react";
+
+const homes = [
+  { id: 1, city: "London", country: "UK" },
+  { id: 2, city: "New York", country: "USA" },
+  { id: 3, city: "Paris", country: "France" },
+  { id: 4, city: "Toronto", country: "Canada" },
+  { id: 5, city: "Lekki", country: "Nigeria" },
+];
+
+export default function AirbnbDemo() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Warning */}
+      <div className="bg-yellow-100 text-center text-sm p-2">
+        ⚠️ Ce site est un projet personnel de démonstration et n'est pas affilié à Airbnb.
+      </div>
+
+      {/* Navbar */}
+      <nav className="flex justify-between items-center px-6 py-4 bg-white shadow">
+        <h1 className="text-2xl font-bold text-red-500">Airbnb</h1>
+        <div className="flex gap-4 text-sm">
+          <span>Homes</span>
+          <span>Experiences</span>
+          <span>Services</span>
+        </div>
+        <button className="border px-4 py-2 rounded-full text-sm">Become a host</button>
+      </nav>
+
+      {/* Search */}
+      <div className="flex justify-center mt-6">
+        <div className="bg-white shadow rounded-full flex gap-4 px-6 py-3 text-sm">
+          <span>Where</span>
+          <span>Check in</span>
+          <span>Check out</span>
+          <span>Who</span>
+        </div>
+      </div>
+
+      {/* Cards */}
+      <section className="px-6 mt-10">
+        <h2 className="text-xl font-semibold mb-4">Popular homes</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          {homes.map((home) => (
+            <div key={home.id} className="bg-white rounded-xl shadow overflow-hidden">
+              <div className="h-40 bg-gray-300"></div>
+              <div className="p-4 text-sm">
+                <p className="font-semibold">Room in {home.city}</p>
+                <p className="text-gray-500">{home.country}</p>
+                <p className="mt-2">$105 for two nights</p>
+                <p className="text-yellow-500">✨ 4.97</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="mt-16 bg-white border-t p-6 text-sm text-gray-600">
+        <p>© 2025 Airbnb, Inc. · Projet de démonstration</p>
+      </footer>
+    </div>
+  );
+}
